@@ -1,0 +1,68 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Upload
+uploaded = files.upload()
+
+# Read image
+img = cv2.imread("example.jpg")
+
+# Convert to gray scale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
+# Function to display images
+def show_image(img, title):
+    h, w = img.shape[:2]
+
+    plt.imshow(img, cmap="gray")
+    plt.title(title, fontsize=16)
+    plt.axis("off")
+    plt.show()
+
+
+# Show gray scale
+show_image(gray, "Gray Scale")
+
+
+# Gx - Horizontal edges
+sobel_x = cv2.Sobel(
+    gray,
+    cv2.CV_64F,
+    1,
+    0,
+    ksize=3
+)
+
+sobel_x_abs = cv2.convertScaleAbs(sobel_x)
+
+show_image(sobel_x_abs, "Gx Horizontal Edges")
+
+
+# Gy - Vertical edges
+sobel_y = cv2.Sobel(
+    gray,
+    cv2.CV_64F,
+    0,
+    1,
+    ksize=3
+)
+
+sobel_y_abs = cv2.convertScaleAbs(sobel_y)
+
+show_image(sobel_y_abs, "Gy Vertical Edges")
+
+
+# Combine Gx and Gy
+sobel_combined = cv2.magnitude(
+    sobel_x,
+    sobel_y
+)
+
+sobel_combined = cv2.convertScaleAbs(sobel_combined)
+
+show_image(
+    sobel_combined,
+    "Combined Edges"
+)
