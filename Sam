@@ -1,0 +1,4 @@
+START: MOV A
+       ADD B
+       SUB C
+       END
