@@ -1,0 +1,74 @@
+#!/bin/bash
+
+echo "Enter a filename to create:"
+read fname
+
+echo "Enter content to write into the file:"
+read content
+
+echo "$content" > "$fname"
+
+echo "File '$fname' created."
+
+echo "Listing all files:"
+ls -l
+
+echo "Copying $fname to copy_of_$fname"
+cp "$fname" "copy_of_$fname"
+
+ls -l "copy_of_$fname"
+
+echo "Renaming copy_of_$fname to renamed_$fname"
+mv "copy_of_$fname" "renamed_$fname"
+
+ls -l "renamed_$fname"
+
+echo "Deleting renamed_$fname"
+rm "renamed_$fname"
+
+echo "File deleted. Current files:"
+ls -l
+
+
+
+
+part 2:-
+#!/bin/bash
+
+echo "Starting a background sleep process (sleep 45)..."
+
+sleep 45 &
+
+echo "Process started in background with PID $!"
+
+ps -p $!
+
+
+part 3:- 
+
+#!/bin/bash
+
+echo "Current top running processes:"
+ps aux | head -5
+
+echo "Enter process name to find (e.g., bash, sleep):"
+read pname
+
+echo "Matching processes:"
+pgrep -l "$pname"
+
+echo "Live system resource usage (press q to quit):"
+top -b -n 1 | head -15
+
+
+
+To run :
+chmod +x file_ops.sh
+chmod +x process_create.sh
+chmod +x process_monitor.sh
+
+Then :
+
+./file_ops.sh
+./process_create.sh
+./process_monitor.sh
