@@ -1,0 +1,171 @@
+2. Basics of React.js
+
+a. Implement a Counter Button Using React Class Components
+Aim:
+To implement a counter using React class components.
+Program:
+CounterClass.js
+import React, { Component } from 'react';
+
+class CounterClass extends Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <h2>Counter: {this.state.count}</h2>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+
+export default CounterClass;
+Output:
+Initially: Counter: 0
+[Increment]
+
+After two clicks:
+Counter: 2
+[Increment]
+
+
+
+
+
+
+b. Implement a Counter Button Using React Functional Components
+Aim:
+To create a counter using React functional components and Hooks.
+Program:
+CounterFunctional.js
+import React, { useState } from 'react';
+
+function CounterFunctional() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Counter: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+export default CounterFunctional;
+Output:
+Initially: Counter: 0
+[Increment]
+
+After three clicks:
+Counter: 3
+[Increment]
+
+
+
+
+
+
+c. Handle Button Click Events in Functional Component
+Aim:
+To handle click events in a React functional component.
+Program:
+ButtonClick.js
+import React from 'react';
+
+function ButtonClick() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click Me!</button>
+    </div>
+  );
+}
+
+export default ButtonClick;
+Output:
+[Click Me!]
+
+On clicking the button, an alert appears:
+Button clicked!
+
+
+
+
+
+
+d. Conditionally Render a Component in the Browser
+Aim:
+To render content conditionally using the ternary operator in React.
+Program:
+ConditionalRender.js
+import React, { useState } from 'react';
+
+function ConditionalRender() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <div>
+      {isLoggedIn ? (
+        <h2>Welcome Back!</h2>
+      ) : (
+        <h2>Please Log In</h2>
+      )}
+
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? 'Logout' : 'Login'}
+      </button>
+    </div>
+  );
+}
+
+export default ConditionalRender;
+Output:
+Initially:
+Please Log In
+[Login]
+
+After clicking Login:
+Welcome Back!
+[Logout]
+
+
+
+
+
+
+e. Display Text Using String Literals
+Aim:
+To use string literals (template literals) for displaying dynamic content.
+Program:
+StringLiteral.js
+import React from 'react';
+
+function StringLiteral() {
+  const name = 'React Developer';
+  const task = 'learning React';
+
+  return (
+    <div>
+      <h2>{`Hello, ${name}!`}</h2>
+      <p>{`You're currently ${task}.`}</p>
+    </div>
+  );
+}
+
+export default StringLiteral;
+Output:
+Hello, React Developer!
+You're currently learning React.
