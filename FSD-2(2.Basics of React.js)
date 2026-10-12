@@ -169,3 +169,105 @@ export default StringLiteral;
 Output:
 Hello, React Developer!
 You're currently learning React.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### React.js Practicals — Execution Steps
+### Part 1: Node.js setup
+
+* Download and install Node.js LTS from [nodejs.org](https://nodejs.org/).
+* Open VS Code.
+* Select Terminal → New Terminal.
+* Check Node.js: `node -v`
+* Check npm: `npm -v`
+* Create a React project using Vite.
+* Open the project folder in VS Code.
+* Install the required packages.
+* Open the `src` folder.
+
+
+### Part 2: Execute each program separately
+### Program (a): Counter using Class Components
+* Create the `CounterClass.js` file inside `src`.
+* Enter Program (a) into the file.
+* Open `App.jsx` and import the component.
+* Display the component in `App.jsx`.
+* Save all files.
+* Run the project using the terminal.
+* Open the local URL in your browser.
+* Click Increment to test the counter.
+### Program (b): Counter using Functional Components
+* Create `CounterFunctional.js` inside `src`.
+* Enter Program (b) into the file.
+* Import the component into `App.jsx`.
+* Display the component.
+* Save all files.
+* Run the project and check the browser output.
+* Click Increment to test the counter.
+### Program (c): Button Click Events
+* Create `ButtonClick.js` inside `src`.
+* Enter Program (c) into the file.
+* Import the component into `App.jsx`.
+* Display the component.
+* Save all files.
+* Run the project.
+* Click Click Me! and verify the alert message.
+### Program (d): Conditional Rendering
+* Create `ConditionalRender.js` inside `src`.
+* Enter Program (d) into the file.
+* Import the component into `App.jsx`.
+* Display the component.
+* Save all files.
+* Run the project.
+* Click Login and verify the welcome message.
+* Click Logout to return to the initial state.
+### Program (e): String Literals
+* Create `StringLiteral.js` inside `src`.
+* Enter Program (e) into the file.
+* Import the component into `App.jsx`.
+* Display the component.
+* Save all files.
+* Run the project.
+* Verify the displayed text in the browser.
+
+
+
+### Part 3: Merge all five programs
+
+* Keep all five component files inside the same `src` folder.
+* Open `App.jsx`.
+* Import all five components.
+* Display all five components in the same page.
+* Save the file.
+* Start the project using the terminal.
+* Open the local URL in your browser.
+* Test each component individually on the same webpageonline
+
+
+### Part 4: Execute online
+
+* Open [StackBlitz](https://stackblitz.com/).
+* Select a React project using Vite.
+* Wait for the online editor to load.
+* Create the five component files inside `src`.
+* Enter each practical into its respective file.
+* Update `App.jsx` to run one program at a time.
+* Wait for the browser preview to refresh.
+* Repeat for each program.
+* To run all five together, update `App.jsx` to display all five components.
+* Check the output and test the buttons.
+That's it, bro! No code included — only the execution steps for your practical record. 🔥
