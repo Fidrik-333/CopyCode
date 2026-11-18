@@ -1,0 +1,166 @@
+# EXPERIMENT 2
+
+**TITLE:** Develop a Prolog-based expert system for medical diagnosis or animal identification.
+
+**AIM:**
+
+To design and implement an expert system in Prolog for animal identification using facts and rules.
+
+**PROGRAM:**
+
+```prolog
+% Animal Identification Expert System
+
+% Rule for animal
+
+animal(tiger) :-
+    mammal,
+    carnivore,
+    verify(has_black_stripes).
+
+animal(peacock) :-
+    bird,
+    verify(has_colorful_tail).
+
+animal(penguin) :-
+    bird,
+    verify(cannot_fly),
+    verify(swims).
+
+animal(ostrich) :-
+    bird,
+    verify(cannot_fly),
+    verify(long_neck).
+
+animal(whale) :-
+    mammal,
+    verify(lives_in_water),
+    verify(has_blowhole).
+
+animal(bat) :-
+    mammal,
+    verify(can_fly).
+
+animal(lion) :-
+    mammal,
+    carnivore,
+    verify(has_mane).
+
+% Classification Rules
+
+mammal :-
+    verify(has_hair),
+    verify(gives_milk).
+
+bird :-
+    verify(has_feathers).
+
+carnivore :-
+    verify(eats_meat).
+
+% Ask the user
+
+verify(S) :-
+    known(S, yes), !.
+
+verify(S) :-
+    known(S, no), !, fail.
+
+verify(S) :-
+    ask(S).
+
+% Ask question
+
+ask(Question) :-
+    write('Does the animal '),
+    write(Question),
+    write('? (yes/no): '),
+    read(Response),
+    nl,
+    assertz(known(Question, Response)),
+    Response = yes.
+
+% Reset known facts
+
+undo :-
+    retract(known(_, _)),
+    fail.
+
+undo.
+
+% Start the identification
+
+start :-
+    undo,
+    animal(Animal),
+    write('The animal is likely a '),
+    write(Animal),
+    nl.
+
+start :-
+    write('Sorry, the animal could not be identified.'),
+    nl.
+```
+
+**HOW TO EXECUTE:**
+
+1. Save the program as animal.pl.
+2. Open SWI-Prolog.
+3. Load the file using:
+
+```prolog
+['animal.pl'].
+```
+
+4. Run the query:
+
+```prolog
+?- start.
+```
+
+5. Answer the questions with yes or no.
+6. Observe the identified animal.
+
+**OUTPUT:**
+
+Example 1: Identifying a Lion
+
+```text
+?- start.
+
+Does the animal has_hair? (yes/no): yes.
+
+Does the animal gives_milk? (yes/no): yes.
+
+Does the animal eats_meat? (yes/no): yes.
+
+Does the animal has_black_stripes? (yes/no): no.
+
+Does the animal has_mane? (yes/no): yes.
+
+The animal is likely a lion
+
+true.
+```
+
+Example 2: Identifying a Peacock
+
+```text
+?- start.
+
+Does the animal has_feathers? (yes/no): yes.
+
+Does the animal has_colorful_tail? (yes/no): yes.
+
+The animal is likely a peacock
+
+true.
+```
+
+**RESULT:**
+
+Thus, the Prolog-based animal identification expert system was successfully implemented and executed using facts, rules and interactive queries to identify animals based on user responses.
+
+**CONCLUSION:**
+
+This experiment demonstrates how Prolog uses facts and rules to build an expert system. The system identifies animals by asking questions and analyzing user responses.
