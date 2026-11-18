@@ -199,3 +199,31 @@ int main()
 
     return 0;
 }
+
+
+#Sample Input (input.asm)
+MACRO
+INCR &A
+LOAD &A
+ADD 1
+STORE &A
+MEND
+
+START
+INCR X
+INCR Y
+END
+
+
+Sample Output
+START
+
+LOAD X
+ADD 1
+STORE X
+
+LOAD Y
+ADD 1
+STORE Y
+
+END
