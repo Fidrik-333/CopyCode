@@ -74,3 +74,18 @@ int main()
 
     return 0;
 }
+
+
+
+
+#OUTPUT
+
+
+myshell> ls
+file1.txt  main.c  output  test.c
+myshell> pwd
+/home/student/shell
+myshell> echo Hello Linux
+Hello Linux
+myshell> exit
+Exiting shell.
