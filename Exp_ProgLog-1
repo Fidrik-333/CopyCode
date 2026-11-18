@@ -1,0 +1,93 @@
+EXPERIMENT 1
+
+TITLE:
+Write a program in Prolog using facts, rules and queries.
+
+AIM:
+To write and execute a simple Prolog program that uses facts, rules and queries to infer relationships.
+
+PROGRAM:
+
+% Facts
+
+male(john).
+male(mike).
+male(tom).
+
+female(lisa).
+female(anna).
+female(susan).
+
+% Parent relationships
+
+parent(john, mike).
+parent(john, lisa).
+parent(lisa, tom).
+parent(lisa, anna).
+parent(mike, susan).
+
+% Rules
+
+% X is a father of Y
+father(X, Y) :-
+    male(X),
+    parent(X, Y).
+
+% X is a mother of Y
+mother(X, Y) :-
+    female(X),
+    parent(X, Y).
+
+% X is a grandparent of Y
+grandparent(X, Y) :-
+    parent(X, Z),
+    parent(Z, Y).
+
+% X is a sibling of Y
+sibling(X, Y) :-
+    parent(Z, X),
+    parent(Z, Y),
+    X \= Y.
+
+
+QUERIES AND OUTPUTS:
+
+1. Query:
+?- father(john, mike).
+
+Output:
+true.
+
+2. Query:
+?- mother(lisa, tom).
+
+Output:
+true.
+
+3. Query:
+?- grandparent(john, tom).
+
+Output:
+true.
+
+4. Query:
+?- sibling(tom, anna).
+
+Output:
+true.
+
+5. Query:
+?- sibling(mike, lisa).
+
+Output:
+true.
+
+6. Query:
+?- parent(john, Who).
+
+Output:
+Who = mike ;
+Who = lisa.
+
+RESULT:
+Thus, the Prolog program using facts, rules and queries was successfully written and executed, and the family relationships were verified.
